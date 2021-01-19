@@ -1,0 +1,9 @@
+TODO:
+1. Models for data.
+2. Hook up to SQLite for easy packaging and deployment.
+3. Write seeding script.
+4. Build frontend. Focus on Android.
+5. Configure to connect to localhost.
+// if we have time
+5. Implement pagination and larger dataset.
+6. Deploy to vickean.com for demo.
