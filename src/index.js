@@ -9,6 +9,7 @@ console.log("Common Ground Clone Backend");
 
 const app = express();
 
+app.use(express.static("public"));
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -28,7 +29,8 @@ app.use((req, res, next) => {
 
 app.use("/session", routes.session);
 app.use("/users", routes.user);
-app.use("/messages", routes.message);
+app.use("/posts", routes.post);
+app.use("/matches", routes.match);
 
 app.get("/", (req, res) => {
   res.send("Hello World!");

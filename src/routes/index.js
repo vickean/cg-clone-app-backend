@@ -1,9 +1,11 @@
 import session from "./session";
 import user from "./user";
-import message from "./message";
+import post from "./post";
+import match from "./match";
 
 export default {
   session,
   user,
-  message,
+  post,
+  match,
 };

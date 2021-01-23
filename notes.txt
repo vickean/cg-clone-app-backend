@@ -7,3 +7,40 @@ TODO:
 // if we have time
 5. Implement pagination and larger dataset.
 6. Deploy to vickean.com for demo.
+
+TECH STACK:
+FE: React Native, Axios
+BE: NodeJs, Express, TypeORM, SQLite
+
+Models:
+BaseModel
+> id uuid pk
+> createdDate datetime
+> modifiedDate datetime
+
+Users extends BaseModel
+> name string
+> organizationId uuid fk
+> imageURL string
+
+Matches extends BaseModel
+> matcherId uuid fk
+> matcheeId uuid fk
+> matchPercentage number
+
+Posts extends BaseModel
+> userId uuid fk
+> content text 
+> imageURL string
+
+Comments extends BaseModel
+> userId uuid fk
+> content text
+> postId uuid fk
+
+Likes extends BaseModel
+> userId uuid fk
+> postId uuid fk
+
+Organization extends BaseModel
+> name string
