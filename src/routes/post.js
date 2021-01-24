@@ -4,7 +4,27 @@ import { Router } from "express";
 const router = Router();
 
 router.get("/", (req, res) => {
-  return res.send(Object.values(req.context.models.posts));
+  const allPosts = Object.values(req.context.models.posts);
+
+  console.log(allPosts);
+
+  const result = allPosts.map((item) => {
+    const userId = item.userId;
+
+    const userData = req.context.models.users[userId];
+
+    return {
+      id: item.id,
+      text: item.text,
+      imageURL: item.imageURL,
+      commentsCount: item.commentsCount,
+      likesCount: item.likesCount,
+      createdDate: item.createdDate,
+      user: userData,
+    };
+  });
+
+  return res.send(result);
 });
 
 router.get("/:postId", (req, res) => {

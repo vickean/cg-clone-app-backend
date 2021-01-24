@@ -21,8 +21,6 @@ router.get("/:userId", (req, res) => {
     const matcherData = req.context.models.users[matcherId];
     const matcheeData = req.context.models.users[matcheeId];
 
-    console.log(matcherData, matcheeData);
-
     return {
       id: item.id,
       percentage: item.percentage,
