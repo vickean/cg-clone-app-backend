@@ -14,7 +14,24 @@ router.get("/:userId", (req, res) => {
     (match) => parseInt(match.matcherId, 10) === parseInt(req.params.userId)
   );
 
-  return res.send(result);
+  const resultUserData = result.map((item) => {
+    const matcherId = item.matcherId;
+    const matcheeId = item.matcheeId;
+
+    const matcherData = req.context.models.users[matcherId];
+    const matcheeData = req.context.models.users[matcheeId];
+
+    console.log(matcherData, matcheeData);
+
+    return {
+      id: item.id,
+      percentage: item.percentage,
+      matcher: matcherData,
+      matchee: matcheeData,
+    };
+  });
+
+  return res.send(resultUserData);
 });
 
 router.post("/", (req, res) => {
